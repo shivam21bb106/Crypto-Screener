@@ -6,9 +6,10 @@ export const CryptoProvider = ({ children }) => {
     const [searchData, setSearchData] = useState([])
     const [coinSearch, setCoinSearch] = useState('')
     const [currency, setCurrency] = useState('usd')
+    const [sortBy, setSortBy] = useState("market_cap_desc")
 
 
-
+    console.log("Sorrrrt by 22222", sortBy)
 
     const getCryptoData = async () => {
         try {
@@ -37,9 +38,9 @@ export const CryptoProvider = ({ children }) => {
 
     useLayoutEffect(() => {
         getCryptoData();
-    }, [coinSearch])
+    }, [coinSearch, currency, sortBy])
     return (
-        <CryptoContext.Provider value={{ cryptoData, searchData, getSearchResult, setCoinSearch, setSearchData, currency }}>
+        <CryptoContext.Provider value={{ cryptoData, searchData, getSearchResult, setCoinSearch, setSearchData, currency, sortBy, setSortBy }}>
             {children}
         </CryptoContext.Provider>
 
