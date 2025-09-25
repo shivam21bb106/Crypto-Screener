@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-// Pages
 import Home from "./pages/Home";
 import Crypto from "./pages/Crypto";
 import Trending from "./pages/Trending";
@@ -11,18 +10,18 @@ import Saved from "./pages/Saved";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,   // parent layout
+    element: <Home />,
     children: [
       {
-        index: true,      // default route => "/"
+        index: true,
         element: <Crypto />
       },
       {
-        path: "trending", // => "/trending"
+        path: "trending",
         element: <Trending />
       },
       {
-        path: "saved",    // => "/saved"
+        path: "saved",
         element: <Saved />
       }
     ]
